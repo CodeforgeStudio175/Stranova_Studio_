@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stranova Studio — Web & Digital</title>
+
+    <meta name="description"
+        content="Stranova Studio — Desenvolvimento web, design digital e soluções tecnológicas modernas.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #05070b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(5, 7, 11, 0.85);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #168cff;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 14px;
+            color: #b8bec8;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #168cff;
+        }
+
+        .menu-btn {
+            display: none;
+
+            background: none;
+            border: none;
+
+            color: white;
+            font-size: 28px;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5,7,11,0.97),
+                    rgba(5,7,11,0.70)
+                ),
+                url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            width: 500px;
+            height: 500px;
+
+            right: -150px;
+            bottom: -200px;
+
+            background: #087eff;
+            opacity: 0.15;
+
+            filter: blur(120px);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+
+            margin: auto;
+            padding: 120px 25px 80px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            color: #168cff;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 125px);
+
+            line-height: 0.9;
+
+            max-width: 950px;
+
+            letter-spacing: -6px;
+
+            margin-bottom: 35px;
+        }
+
+        .hero h1 span {
+            color: #168cff;
+        }
+
+        .hero-text {
+            max-width: 650px;
+
+            color: #b8bec8;
+
+            font-size: 18px;
+
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 25px;
+
+            border-radius: 5px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #168cff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #006fda;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: #168cff;
+            color: #168cff;
+        }
+
+        .hero-bottom {
+            margin-top: 80px;
+
+            color: #66707e;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 120px 25px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: #168cff;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(40px, 6vw, 75px);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 60px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 550px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+        }
+
+        .about-text {
+            color: #aeb5c0;
+
+            font-size: 17px;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .service-card {
+            position: relative;
+
+            padding: 40px 30px;
+
+            min-height: 330px;
+
+            background: #090d13;
+
+            border: 1px solid #171d26;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            transition: 0.35s;
+
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 3px;
+
+            background: #168cff;
+
+            transition: 0.35s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #168cff;
+
+            box-shadow:
+                0 20px 50px rgba(0, 110, 255, 0.12);
+        }
+
+        .service-card:hover::before {
+            width: 100%;
+        }
+
+        .service-number {
+            color: #168cff;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 45px;
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+
+            margin-bottom: 20px;
+        }
+
+        .service-card p {
+            color: #89919e;
+
+            font-size: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .service-link {
+            color: #168cff;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           TECHNOLOGIES
+        ========================= */
+
+        .tech-grid {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .tech {
+            padding: 12px 18px;
+
+            border: 1px solid #202732;
+
+            border-radius: 4px;
+
+            color: #9da5b1;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .tech:hover {
+            color: white;
+
+            border-color: #168cff;
+
+            background: rgba(22,140,255,0.08);
+        }
+
+        /* =========================
+           IDENTITY
+        ========================= */
+
+        .identity-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .identity-image {
+            width: 100%;
+
+            height: 500px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+        }
+
+        .identity-text {
+            color: #aeb5c0;
+
+            font-size: 17px;
+        }
+
+        .identity-text p {
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           PROCESS
+        ========================= */
+
+        .process-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .process {
+            padding: 30px 20px;
+
+            border-top: 1px solid #222a35;
+        }
+
+        .process-number {
+            color: #168cff;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+        .process h3 {
+            margin-bottom: 12px;
+        }
+
+        .process p {
+            color: #818b99;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(22,140,255,0.12),
+                    transparent 50%
+                );
+        }
+
+        .contact h2 {
+            font-size: clamp(45px, 7vw, 90px);
+
+            line-height: 0.95;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            color: #9099a6;
+
+            max-width: 600px;
+
+            margin: auto;
+
+            margin-bottom: 35px;
+        }
+
+        .contact-email {
+            display: block;
+
+            color: #168cff;
+
+            font-size: 20px;
+
+            margin-top: 25px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 25px;
+
+            border-top: 1px solid #171d26;
+
+            color: #59616d;
+
+            font-size: 12px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,0.75);
+
+            backdrop-filter: blur(8px);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: 0.3s;
+
+            z-index: 2000;
+        }
+
+        .modal.show {
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+        .modal-content {
+            width: 100%;
+
+            max-width: 550px;
+
+            background: #090d13;
+
+            border: 1px solid #1e2733;
+
+            border-radius: 10px;
+
+            padding: 45px;
+
+            position: relative;
+
+            transform: translateY(30px);
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 30px 100px rgba(0,0,0,0.5);
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+
+            top: 15px;
+            right: 20px;
+
+            background: none;
+
+            border: none;
+
+            color: #777f8b;
+
+            font-size: 30px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .modal-close:hover {
+            color: white;
+        }
+
+        .modal h2 {
+            font-size: 38px;
+
+            margin-bottom: 15px;
+        }
+
+        .modal-price {
+            display: inline-block;
+
+            color: #168cff;
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+        }
+
+        .modal-description {
+            color: #9ca5b2;
+
+            margin-bottom: 30px;
+
+            font-size: 16px;
+        }
+
+        /* =========================
+           TOP BUTTON
+        ========================= */
+
+        #topBtn {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 45px;
+            height: 45px;
+
+            border: 1px solid #202a36;
+
+            background: #090d13;
+
+            color: white;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            display: none;
+
+            z-index: 900;
+        }
+
+        #topBtn:hover {
+            border-color: #168cff;
+
+            color: #168cff;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                display: none;
+
+                position: absolute;
+
+                top: 80px;
+                left: 0;
+
+                width: 100%;
+
+                background: #070a0f;
+
+                padding: 25px;
+
+                flex-direction: column;
+
+                gap: 20px;
+
+                border-bottom: 1px solid #171d26;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .about-grid,
+            .identity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-image,
+            .identity-image {
+                height: 350px;
+            }
+
+            .modal-content {
+                padding: 35px 25px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 90px 20px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .modal h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <div class="nav">
+
+            <a href="#inicio" class="logo">
+                STRANOVA<span>.</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <nav id="navMenu">
+
+                <a href="#inicio">Início</a>
+
+                <a href="#sobre">Sobre</a>
+
+                <a href="#servicos">Serviços</a>
+
+                <a href="#identidade">Identidade</a>
+
+                <a href="#contactos">Contactos</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                STRANOVA STUDIO
+            </div>
+
+            <h1>
+                Criamos<br>
+                o <span>digital.</span>
+            </h1>
+
+            <p class="hero-text">
+                Desenvolvimento web, design digital e soluções
+                tecnológicas modernas para transformar ideias
+                em projetos reais.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#servicos" class="btn btn-primary">
+                    Conhecer serviços →
+                </a>
+
+                <a href="#contactos" class="btn btn-secondary">
+                    Contactar
+                </a>
+
+            </div>
+
+            <div class="hero-bottom">
+                PENSAR • CRIAR • EVOLUIR
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOBRE
+    ========================= -->
+
+    <section id="sobre">
+
+        <div class="container">
+
+            <div class="section-label">
+                01 / SOBRE
+            </div>
+
+            <div class="about-grid">
+
+                <div>
+
+                    <h2 class="section-title">
+                        Ideias que<br>
+                        ganham forma.
+                    </h2>
+
+                    <div class="about-text">
+
+                        <p>
+                            A Stranova Studio é um projeto focado
+                            na criação de experiências digitais
+                            modernas, funcionais e acessíveis.
+                        </p>
+
+                        <p>
+                            Desde websites até soluções digitais,
+                            transformamos conceitos em produtos
+                            digitais simples, rápidos e visualmente
+                            marcantes.
+                        </p>
+
+                        <p>
+                            O nosso objetivo é criar tecnologia
+                            que faça sentido para cada projeto.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <img
+                    class="about-image"
+                    src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=1600&q=85"
+                    alt="Espaço de trabalho moderno"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVIÇOS
+    ========================= -->
+
+    <section id="servicos">
+
+        <div class="container">
+
+            <div class="section-label">
+                02 / SERVIÇOS
+            </div>
+
+            <h2 class="section-title">
+                O que fazemos.
+            </h2>
+
+            <div class="services-grid">
+
+
+                <!-- WEB DEVELOPMENT -->
+
+                <div
+                    class="service-card"
+                    onclick="openService('web')"
+                >
+
+                    <div class="service-number">
+                        01 / WEB
+                    </div>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        Desenvolvimento de websites modernos,
+                        responsivos, rápidos e preparados para
+                        diferentes dispositivos.
+                    </p>
+
+                    <div class="service-link">
+                        Ver preço →
+                    </div>
+
+                </div>
+
+
+                <!-- WEB DESIGN -->
+
+                <div
+                    class="service-card"
+                    onclick="openService('design')"
+                >
+
+                    <div class="service-number">
+                        02 / DESIGN
+                    </div>
+
+                    <h3>
+                        Web Design
+                    </h3>
+
+                    <p>
+                        Interfaces modernas e intuitivas que
+                        combinam estética, funcionalidade e uma
+                        experiência agradável para o utilizador.
+                    </p>
+
+                    <div class="service-link">
+                        Ver preço →
+                    </div>
+
+                </div>
+
+
+                <!-- DIGITAL SOLUTIONS -->
+
+                <div
+                    class="service-card"
+                    onclick="openService('digital')"
+                >
+
+                    <div class="service-number">
+                        03 / DIGITAL
+                    </div>
+
+                    <h3>
+                        Soluções Digitais
+                    </h3>
+
+                    <p>
+                        Ferramentas e experiências digitais
+                        criadas para transformar ideias em
+                        projetos concretos.
+                    </p>
+
+                    <div class="service-link">
+                        Ver preço →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TECNOLOGIAS
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-label">
+                03 / TECNOLOGIAS
+            </div>
+
+            <h2 class="section-title">
+                Ferramentas.
+            </h2>
+
+            <div class="tech-grid">
+
+                <div class="tech">HTML5</div>
+
+                <div class="tech">CSS3</div>
+
+                <div class="tech">JavaScript</div>
+
+                <div class="tech">Responsive Design</div>
+
+                <div class="tech">UI / UX</div>
+
+                <div class="tech">Web Development</div>
+
+                <div class="tech">GitHub</div>
+
+                <div class="tech">Digital Design</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         IDENTIDADE
+    ========================= -->
+
+    <section id="identidade">
+
+        <div class="container">
+
+            <div class="section-label">
+                04 / IDENTIDADE
+            </div>
+
+            <div class="identity-grid">
+
+                <img
+                    class="identity-image"
+                    src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85"
+                    alt="Design digital"
+                >
+
+                <div>
+
+                    <h2 class="section-title">
+                        Design com<br>
+                        propósito.
+                    </h2>
+
+                    <div class="identity-text">
+
+                        <p>
+                            Um bom projeto digital não precisa
+                            apenas de código.
+                        </p>
+
+                        <p>
+                            Precisa de identidade, organização,
+                            clareza e uma experiência que seja
+                            fácil de compreender.
+                        </p>
+
+                        <p>
+                            Na Stranova Studio, juntamos design
+                            e tecnologia para criar experiências
+                            digitais coerentes.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROCESSO
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-label">
+                05 / PROCESSO
+            </div>
+
+            <h2 class="section-title">
+                Do conceito<br>
+                ao resultado.
+            </h2>
+
+            <div class="process-grid">
+
+                <div class="process">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Descobrir
+                    </h3>
+
+                    <p>
+                        Percebemos a ideia, os objetivos
+                        e aquilo que o projeto precisa.
+                    </p>
+
+                </div>
+
+
+                <div class="process">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Planear
+                    </h3>
+
+                    <p>
+                        Organizamos estrutura, funcionalidades
+                        e identidade visual.
+                    </p>
+
+                </div>
+
+
+                <div class="process">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Criar
+                    </h3>
+
+                    <p>
+                        Desenvolvemos o projeto com foco
+                        em qualidade e detalhe.
+                    </p>
+
+                </div>
+
+
+                <div class="process">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Lançar
+                    </h3>
+
+                    <p>
+                        Colocamos o projeto online e preparado
+                        para os utilizadores.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTOS
+    ========================= -->
+
+    <section class="contact" id="contactos">
+
+        <div class="container">
+
+            <div class="section-label">
+                06 / CONTACTOS
+            </div>
+
+            <h2>
+                Vamos criar<br>
+                algo.
+            </h2>
+
+            <p>
+                Tens uma ideia, um website ou um projeto
+                digital? Entra em contacto com a Stranova Studio.
+            </p>
+
+          <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=afonsogc20@gmail.com"
+    target="_blank"
+    class="contact-button"
+>
+                Enviar email →
+            </a>
+
+            <a
+                class="contact-email"
+                href="mailto:afonsogc20@gmail.com"
+            >
+                afonsogc20@gmail.com
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                © 2026 Stranova Studio
+            </div>
+
+            <div>
+                WEB DEVELOPMENT • DIGITAL DESIGN
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         SERVICE MODAL
+    ========================= -->
+
+    <div
+        class="modal"
+        id="serviceModal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                id="modalClose"
+            >
+                ×
+            </button>
+
+            <div
+                class="section-label"
+                id="modalLabel"
+            >
+                SERVIÇO
+            </div>
+
+            <h2 id="modalTitle">
+                Web Development
+            </h2>
+
+            <div
+                class="modal-price"
+                id="modalPrice"
+            >
+                A partir de 10 €
+            </div>
+
+            <p
+                class="modal-description"
+                id="modalDescription"
+            >
+                Criamos websites modernos e responsivos.
+            </p>
+
+            <a
+                href="#contactos"
+                class="btn btn-primary"
+                id="modalContact"
+            >
+                Pedir orçamento →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TOP BUTTON
+    ========================= -->
+
+    <button id="topBtn">
+        ↑
+    </button>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navMenu = document.getElementById("navMenu");
+
+        menuBtn.addEventListener("click", () => {
+
+            navMenu.classList.toggle("active");
+
+        });
+
+
+        /* Fechar menu ao clicar num link */
+
+        document.querySelectorAll("nav a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navMenu.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* =========================
+           SERVICE DATA
+        ========================= */
+
+        const serviceData = {
+
+            web: {
+
+                label: "WEB DEVELOPMENT",
+
+                title: "Web Development",
+
+                price: "A partir de 10 €",
+
+                description:
+                    "Desenvolvimento de websites modernos, rápidos e responsivos, adaptados a computadores, tablets e smartphones."
+
+            },
+
+            design: {
+
+                label: "WEB DESIGN",
+
+                title: "Web Design",
+
+                price: "A partir de 5 €",
+
+                description:
+                    "Criação de interfaces modernas, organizadas e visualmente apelativas, pensadas para proporcionar uma boa experiência ao utilizador."
+
+            },
+
+            digital: {
+
+                label: "DIGITAL SOLUTIONS",
+
+                title: "Soluções Digitais",
+
+                price: "A partir de 2 €",
+
+                description:
+                    "Pequenas ferramentas, funcionalidades e soluções digitais personalizadas para transformar ideias em projetos funcionais."
+
+            }
+
+        };
+
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        const modal =
+            document.getElementById("serviceModal");
+
+        const modalLabel =
+            document.getElementById("modalLabel");
+
+        const modalTitle =
+            document.getElementById("modalTitle");
+
+        const modalPrice =
+            document.getElementById("modalPrice");
+
+        const modalDescription =
+            document.getElementById("modalDescription");
+
+        const modalClose =
+            document.getElementById("modalClose");
+
+
+        function openService(type) {
+
+            const service = serviceData[type];
+
+            modalLabel.textContent =
+                service.label;
+
+            modalTitle.textContent =
+                service.title;
+
+            modalPrice.textContent =
+                service.price;
+
+            modalDescription.textContent =
+                service.description;
+
+            modal.classList.add("show");
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        function closeService() {
+
+            modal.classList.remove("show");
+
+            document.body.style.overflow = "";
+
+        }
+
+
+        modalClose.addEventListener(
+            "click",
+            closeService
+        );
+
+
+        /* Fechar ao clicar fora */
+
+        modal.addEventListener("click", (event) => {
+
+            if (event.target === modal) {
+
+                closeService();
+
+            }
+
+        });
+
+
+        /* Fechar com ESC */
+
+        document.addEventListener("keydown", (event) => {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("show")
+            ) {
+
+                closeService();
+
+            }
+
+        });
+
+
+        /* =========================
+           MODAL -> CONTACTO
+        ========================= */
+
+        document
+            .getElementById("modalContact")
+            .addEventListener("click", () => {
+
+                closeService();
+
+            });
+
+
+        /* =========================
+           BACK TO TOP
+        ========================= */
+
+        const topBtn =
+            document.getElementById("topBtn");
+
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 500) {
+
+                topBtn.style.display = "block";
+
+            } else {
+
+                topBtn.style.display = "none";
+
+            }
+
+        });
+
+
+        topBtn.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
